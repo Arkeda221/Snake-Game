@@ -10,7 +10,7 @@
 
 ### **_Description_**
 
-#### A broswer based video game called Snake. A player controls a snake that roams around a game board, and eating apples, while trying to avoid collisions with the borders of the game board and with the snake's tail.
+#### A broswer based video game called Snake. A player controls a snake that roams around a game board, and eating apples, while trying to avoid collisions with the borders of the game board and with the snake's tail. As the snake eats more apples, the speed at which the snake moves increases. If there is a collision with a border of the game board or the snake's tail, it's GAME OVER.
 
 ---
 
