@@ -1,6 +1,5 @@
 const gameBoard = document.getElementById('grid')
 const playAgain = document.getElementById('play-again')
-
 let interval = 0
 let speed = 1
 let intervelTime = 0
@@ -38,6 +37,7 @@ function moveSnake() {
 function checkIfAppleEaten() {
   if (boxes[snakePosition[0]].classList.contains('apple')) {
     boxes[snakePosition[0]].classList.remove('apple')
+    console.log(score)
     drawApple()
   }
 }

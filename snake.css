@@ -12,10 +12,19 @@ body{
   .header{
     display: grid;
     grid-template-rows: repeat(2, 1fr);
-    justify-content: space-evenly;
+    justify-content:center;
     align-items: center;
     gap: 10px;
     color: rgb(0, 241, 56);
+    font-size: 2.5rem;
+    text-shadow:  0 0 7px rgb(0, 238, 24, 0.7),
+                  0 0 10px rgb(0, 0, 0),
+                  0 0 21px rgb(0, 238, 24, 0.7 ), 
+                  0 0 42px rgb(0, 0, 0),
+                  0 0 82px rgb(0, 0, 0),
+                  0 0 92px rgb(0, 0, 0),
+                  0 0 102px rgb(0, 0, 0),
+                  0 0 151px rgb(0, 0, 0);
     
   }
 
@@ -37,18 +46,6 @@ body{
       width: 32px;
       height: 32px;
   }
-/* 
-  #play-again{
-      font-size: 30px;
-      border-radius: 10px;
-      color:rgb(0, 238, 24);
-      background-color: black;
-      border-color:rgb(0, 238, 24) ;
-      
-  } */
-
-
-
   .snake {
     background-color: rgb(0, 238, 24);
    
