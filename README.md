@@ -26,7 +26,7 @@
 
 ##### - A Trello board was used to keep track of development progress and can be viewed [here](https://trello.com/b/nvUWxu45/unit-1-project-snake-game).
 
-##### - The project itself was deployed and can be viewed [here](URL).(TBD)
+##### - The project itself was deployed and can be viewed [here](https://arkedas_snake-game.surge.sh/)
 
 ---
 
