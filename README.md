@@ -32,7 +32,13 @@
 
 ### **_Screenshots_**
 
-##### (TBD)
+##### Main page
+
+![main](https://i.imgur.com/iPMm8wm.png)
+
+##### Game page
+
+![game](https://i.imgur.com/26S7rHq.png)
 
 ---
 
