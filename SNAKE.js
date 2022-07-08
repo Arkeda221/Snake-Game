@@ -72,3 +72,9 @@ function changeDirection(event) {
 }
 
 document.addEventListener('keydown', changeDirection)
+
+//Credits
+//https://www.section.io/engineering-education/keyboard-events-in-javascript/
+//https://www.youtube.com/watch?v=QTcIXok9wNY&t=831s&ab_channel=WebDevSimplified
+//https://stackoverflow.com/questions/26362423/how-to-remove-a-specific-class-from-all-elements
+//https://www.youtube.com/watch?v=rui2tRRVtc0&ab_channel=CodewithAniaKub%C3%B3w
