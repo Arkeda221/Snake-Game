@@ -37,7 +37,6 @@ function moveSnake() {
 function checkIfAppleEaten() {
   if (boxes[snakePosition[0]].classList.contains('apple')) {
     boxes[snakePosition[0]].classList.remove('apple')
-    console.log(score)
     drawApple()
   }
 }
