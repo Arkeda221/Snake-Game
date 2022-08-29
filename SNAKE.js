@@ -5,7 +5,7 @@ let speed = 1
 
 // Creates a 25x25 board with each div ('box') being 32px
 function drawBoard() {}
-for (let i = 0; i < 625; i++) {
+for (let i = 0; i < 225; i++) {
   let div = document.createElement('div')
   gameBoard.appendChild(div)
 }
@@ -17,7 +17,7 @@ drawApple()
 drawSnake()
 main()
 function main() {
-  intervelTime = 200
+  intervelTime = 190
   moveSnake()
   setInterval(moveSnake, intervelTime)
 }
@@ -36,9 +36,7 @@ function moveSnake() {
 function checkIfAppleEaten() {
   if (boxes[snakePosition[0]].classList.contains('apple')) {
     boxes[snakePosition[0]].classList.remove('apple')
-    const tail = snakePosition.length
-    // console.log(tail)
-    console.log(snakePosition)
+    const tail = [snakePosition[0] + 1]
     snakePosition.push(tail)
     drawApple()
   }
@@ -46,7 +44,6 @@ function checkIfAppleEaten() {
 
 //Draws a snake
 function drawSnake() {
-  // console.log(boxes.length)
   snakePosition = [0, 1]
   snakePosition.forEach((i) => {
     boxes[i].classList.add('snake')
@@ -64,9 +61,9 @@ function drawApple() {
 //Event Listener for changing direction when you press the arrow keys
 function changeDirection(event) {
   if (event.key === 'ArrowDown') {
-    speed = +25
+    speed = +15
   } else if (event.key === 'ArrowUp') {
-    speed = -25
+    speed = -15
   } else if (event.key === 'ArrowLeft') {
     speed = -1
   } else if (event.key === 'ArrowRight') {

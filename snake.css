@@ -29,8 +29,8 @@ body{
   }
 
   #grid{
-    width: 800px;
-    height: 800px;
+    width: 600px;
+    height: 600px;
     display: flex;
     flex-wrap: wrap;    
     box-shadow: 1px 2px 4px 0px rgba(0,238,24,0.7),
@@ -43,8 +43,8 @@ body{
   }
 
   #grid div{
-      width: 32px;
-      height: 32px;
+      width: 40px;
+      height: 40px;
   }
   .snake {
     background-color: rgb(0, 238, 24);
