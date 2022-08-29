@@ -1,8 +1,7 @@
 const gameBoard = document.getElementById('grid')
 const playAgain = document.getElementById('play-again')
-let interval = 0
+
 let speed = 1
-let intervelTime = 0
 
 // Creates a 25x25 board with each div ('box') being 32px
 function drawBoard() {}
@@ -18,9 +17,9 @@ drawApple()
 drawSnake()
 main()
 function main() {
-  intervelTime = 300
+  intervelTime = 200
   moveSnake()
-  interval = setInterval(moveSnake, intervelTime)
+  setInterval(moveSnake, intervelTime)
 }
 
 function moveSnake() {
@@ -29,7 +28,7 @@ function moveSnake() {
   snakePosition.unshift(snakePosition[0] + speed)
   snakePosition.forEach((i) => {
     boxes[i].classList.add('snake')
-    console.log(snakePosition)
+    console.log(snakePosition[0])
     checkIfAppleEaten()
   })
 }
@@ -37,14 +36,18 @@ function moveSnake() {
 function checkIfAppleEaten() {
   if (boxes[snakePosition[0]].classList.contains('apple')) {
     boxes[snakePosition[0]].classList.remove('apple')
+    const tail = snakePosition.length
+    // console.log(tail)
+    console.log(snakePosition)
+    snakePosition.push(tail)
     drawApple()
   }
 }
 
 //Draws a snake
 function drawSnake() {
-  console.log(boxes.length)
-  snakePosition = [2, 1]
+  // console.log(boxes.length)
+  snakePosition = [0, 1]
   snakePosition.forEach((i) => {
     boxes[i].classList.add('snake')
   })
