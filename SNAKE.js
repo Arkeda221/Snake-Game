@@ -1,9 +1,9 @@
 const gameBoard = document.getElementById('grid')
 const playAgain = document.getElementById('play-again')
-
 let speed = 1
+const width = 15
 
-// Creates a 25x25 board with each div ('box') being 32px
+// Creates a 15x15 board with each div ('box') being 32px
 function drawBoard() {}
 for (let i = 0; i < 225; i++) {
   let div = document.createElement('div')
@@ -12,10 +12,13 @@ for (let i = 0; i < 225; i++) {
 
 const boxes = document.querySelectorAll('#grid div')
 
-drawBoard()
-drawApple()
-drawSnake()
-main()
+function startGame() {
+  drawBoard()
+  drawApple()
+  drawSnake()
+  main()
+}
+
 function main() {
   intervelTime = 190
   moveSnake()
@@ -30,6 +33,7 @@ function moveSnake() {
     boxes[i].classList.add('snake')
     console.log(snakePosition[0])
     checkIfAppleEaten()
+    checkForHits()
   })
 }
 
@@ -40,6 +44,38 @@ function checkIfAppleEaten() {
     snakePosition.push(tail)
     drawApple()
   }
+}
+
+function checkForHits() {
+  if (
+    (snakePosition[0] + width >= width * width && speed === width) || //if snake hits bottom
+    (snakePosition[0] % width === width - 1.5 && speed === 1) || //if snake hits right wall
+    (snakePosition[0] % width === 0 && speed === -1) || //if snake hits left wall
+    (snakePosition[0] - width < 0 && speed === -width) || //if snake hits the top
+    boxes[snakePosition[0] + speed].classList.contains('snake') //if snake goes into itself
+  ) {
+    gameOver()
+  }
+}
+
+function gameOver() {
+  document.getElementById('hidden').style.visibility = 'visible'
+  clearBoard()
+  startGame(false)
+  setInterval = 0
+}
+
+function reset() {
+  window.location.reload()
+}
+
+function clearBoard() {
+  snakePosition.forEach((i) => {
+    boxes[i].classList.remove('snake')
+  })
+  applePosition.forEach((i) => {
+    boxes[i].classList.remove('apple')
+  })
 }
 
 //Draws a snake
@@ -62,15 +98,22 @@ function drawApple() {
 function changeDirection(event) {
   if (event.key === 'ArrowDown') {
     speed = +15
+    return
   } else if (event.key === 'ArrowUp') {
     speed = -15
+    return
   } else if (event.key === 'ArrowLeft') {
     speed = -1
+    return
   } else if (event.key === 'ArrowRight') {
     speed = 1
+    return
   }
 }
 
+startGame()
+
+playAgain.addEventListener('click', reset)
 document.addEventListener('keydown', changeDirection)
 
 //Credits

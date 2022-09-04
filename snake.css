@@ -56,6 +56,37 @@ body{
 
   }
 
+  .gameover{
+    color: rgb(0, 241, 56);
+    font-size: 2.5rem;
+    text-shadow:  0 0 7px rgb(0, 238, 24, 0.7),
+                  0 0 10px rgb(0, 0, 0),
+                  0 0 21px rgb(0, 238, 24, 0.7 ), 
+                  0 0 42px rgb(0, 0, 0),
+                  0 0 82px rgb(0, 0, 0),
+                  0 0 92px rgb(0, 0, 0),
+                  0 0 102px rgb(0, 0, 0),
+                  0 0 151px rgb(0, 0, 0);
+  }
 
+#hidden  {
+  text-align: center;
+  visibility: hidden;
+}
 
-
+#play-again{
+  font-size: 1.5em;
+  border-radius: 10px;
+  color:rgb(0, 238, 24);
+  background-color: black;
+  border-color:rgb(0, 238, 24) ;
+  margin-top: 5%;
+  box-shadow: 1px 2px 4px 0px rgba(0,238,24,0.7),
+              1px 2px 4px 0px rgba(0,238,24,0.7),
+              2px 4px 8px 0px rgba(0,238,24,0.7),
+              2px 4px 16px 0px rgba(0,238,24,0.7);
+  text-shadow: 
+            0 0 10px rgb(0, 0, 0),
+            0 0 21px rgb(0, 238, 24),
+            0 0 42px rgb(0, 0, 0);
+}
