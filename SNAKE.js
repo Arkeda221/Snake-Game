@@ -2,7 +2,7 @@ const gameBoard = document.getElementById('grid')
 const playAgain = document.getElementById('play-again')
 let speed = 1
 const width = 15
-
+let interval = 0
 // Creates a 15x15 board with each div ('box') being 32px
 function drawBoard() {}
 for (let i = 0; i < 225; i++) {
@@ -12,6 +12,8 @@ for (let i = 0; i < 225; i++) {
 
 const boxes = document.querySelectorAll('#grid div')
 
+startGame()
+
 function startGame() {
   drawBoard()
   drawApple()
@@ -20,9 +22,9 @@ function startGame() {
 }
 
 function main() {
+  clearInterval(interval)
   intervelTime = 190
-  moveSnake()
-  setInterval(moveSnake, intervelTime)
+  interval = setInterval(moveSnake, intervelTime)
 }
 
 function moveSnake() {
@@ -31,7 +33,7 @@ function moveSnake() {
   snakePosition.unshift(snakePosition[0] + speed)
   snakePosition.forEach((i) => {
     boxes[i].classList.add('snake')
-    console.log(snakePosition[0])
+    // console.log(snakePosition[0])
     checkIfAppleEaten()
     checkForHits()
   })
@@ -49,33 +51,18 @@ function checkIfAppleEaten() {
 function checkForHits() {
   if (
     (snakePosition[0] + width >= width * width && speed === width) || //if snake hits bottom
-    (snakePosition[0] % width === width - 1.5 && speed === 1) || //if snake hits right wall
+    (snakePosition[0] % width === width - 1 && speed === 1) || //if snake hits right wall
     (snakePosition[0] % width === 0 && speed === -1) || //if snake hits left wall
     (snakePosition[0] - width < 0 && speed === -width) || //if snake hits the top
     boxes[snakePosition[0] + speed].classList.contains('snake') //if snake goes into itself
   ) {
     gameOver()
+    return clearInterval(interval)
   }
-}
-
-function gameOver() {
-  document.getElementById('hidden').style.visibility = 'visible'
-  clearBoard()
-  startGame(false)
-  setInterval = 0
 }
 
 function reset() {
   window.location.reload()
-}
-
-function clearBoard() {
-  snakePosition.forEach((i) => {
-    boxes[i].classList.remove('snake')
-  })
-  applePosition.forEach((i) => {
-    boxes[i].classList.remove('apple')
-  })
 }
 
 //Draws a snake
@@ -111,7 +98,9 @@ function changeDirection(event) {
   }
 }
 
-startGame()
+function gameOver() {
+  document.getElementById('hidden').style.visibility = 'visible'
+}
 
 playAgain.addEventListener('click', reset)
 document.addEventListener('keydown', changeDirection)
