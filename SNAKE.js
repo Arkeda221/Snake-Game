@@ -23,19 +23,19 @@ function startGame() {
 
 function main() {
   clearInterval(interval)
-  intervelTime = 190
+  intervelTime = 300 * 0.9
   interval = setInterval(moveSnake, intervelTime)
 }
 
 function moveSnake() {
   const update = snakePosition.pop()
   boxes[update].classList.remove('snake')
+  checkForHits()
   snakePosition.unshift(snakePosition[0] + speed)
   snakePosition.forEach((i) => {
     boxes[i].classList.add('snake')
-    // console.log(snakePosition[0])
+    console.log(snakePosition[0])
     checkIfAppleEaten()
-    checkForHits()
   })
 }
 
@@ -50,11 +50,11 @@ function checkIfAppleEaten() {
 
 function checkForHits() {
   if (
-    (snakePosition[0] + width >= width * width && speed === width) || //if snake hits bottom
-    (snakePosition[0] % width === width - 1 && speed === 1) || //if snake hits right wall
-    (snakePosition[0] % width === 0 && speed === -1) || //if snake hits left wall
-    (snakePosition[0] - width < 0 && speed === -width) || //if snake hits the top
-    boxes[snakePosition[0] + speed].classList.contains('snake') //if snake goes into itself
+    (snakePosition[0] + width >= width * width && speed === width) ||
+    (snakePosition[0] % width === width - 1 && speed === 1) ||
+    (snakePosition[0] % width === 0 && speed === -1) ||
+    (snakePosition[0] - width < 1 && speed === -width) ||
+    boxes[snakePosition[0] + speed].classList.contains('snake')
   ) {
     gameOver()
     return clearInterval(interval)
@@ -67,7 +67,7 @@ function reset() {
 
 //Draws a snake
 function drawSnake() {
-  snakePosition = [0, 1]
+  snakePosition = [2, 1, 0]
   snakePosition.forEach((i) => {
     boxes[i].classList.add('snake')
   })
@@ -104,9 +104,3 @@ function gameOver() {
 
 playAgain.addEventListener('click', reset)
 document.addEventListener('keydown', changeDirection)
-
-//Credits
-//https://www.section.io/engineering-education/keyboard-events-in-javascript/
-//https://www.youtube.com/watch?v=QTcIXok9wNY&t=831s&ab_channel=WebDevSimplified
-//https://stackoverflow.com/questions/26362423/how-to-remove-a-specific-class-from-all-elements
-//https://www.youtube.com/watch?v=rui2tRRVtc0&ab_channel=CodewithAniaKub%C3%B3w
