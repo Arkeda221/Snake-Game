@@ -16,14 +16,14 @@ startGame()
 
 function startGame() {
   drawBoard()
-  drawApple()
   drawSnake()
+  drawApple()
   main()
 }
 
 function main() {
   clearInterval(interval)
-  intervelTime = 300 * 0.9
+  intervelTime = 150
   interval = setInterval(moveSnake, intervelTime)
 }
 
@@ -75,7 +75,9 @@ function drawSnake() {
 
 //Draws an apple in a random box
 function drawApple() {
-  applePosition = [Math.floor(Math.random() * boxes.length)]
+  do {
+    applePosition = [Math.floor(Math.random() * boxes.length)]
+  } while (boxes[applePosition].classList.contains('snake'))
   applePosition.forEach((i) => {
     boxes[i].classList.add('apple')
   })
